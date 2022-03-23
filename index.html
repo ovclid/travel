@@ -46,16 +46,16 @@
                         "대나무숲", "서동공원", "왕궁리유적", "왕궁다원(카페)", "함벽정"];
         
         
-        var locs_detail_desc1 = ["(강경)옥녀봉", 
-                                "(강경)소금이야기", 
-                                "(성당포구)바람개비마을", 
-                                "(웅포)벚꽃터널", 
-                                '(웅포)함라산황토가든',
-                                "(익산)구룡마을 대나무숲", 
-                                "(익산)서동공원", 
-                                "(익산)왕궁리 유적", 
-                                "(익산)왕궁다원", 
-                                "(익산)함벽정"
+        var locs_detail_desc1 = ["(강경) 옥녀봉 <- click", 
+                                "(강경) 소금이야기 <- click", 
+                                "(성당포구) 바람개비마을 <- click", 
+                                "(웅포) 벚꽃터널 <- click", 
+                                '(웅포) 함라산황토가든 <- click',
+                                "(익산) 구룡마을 대나무숲 <- click", 
+                                "(익산) 서동공원 <- click", 
+                                "(익산) 왕궁리유적 <- click", 
+                                "(익산) 왕궁다원 <- click", 
+                                "(익산) 함벽정 <- click"
                                ];
         
         var locs_detail_desc2 = ["옥녀봉은...", 
@@ -111,8 +111,8 @@
             });
 
             var content = '<div class="click_text"> <a href=' + locs_link[i] + ">" + locs_detail_desc1[i] + '</a> <br><br>' 
-                           + locs_detail_desc1[2] +
-                            </div>';
+                           + locs_detail_desc2[i] +
+                            '</div>';
             console.log(content);
             kakao.maps.event.addListener(marker, 'click', function () {
                 infowindow.setContent(content );

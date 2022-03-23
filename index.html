@@ -42,11 +42,11 @@
 
         var infowindow = new kakao.maps.InfoWindow({ zIndex: 1, removable :true });
 
-        var locs_desc = ["옥녀봉", "소금이야기(카페, 10시~)", "바람개비마을", "벚꽃터널-드라이브길", '함라산황토가든(식당)',
+        var locs_name = ["옥녀봉", "소금이야기(카페, 10시~)", "바람개비마을", "벚꽃터널-드라이브길", '함라산황토가든(식당)',
                         "대나무숲", "서동공원", "왕궁리유적", "왕궁다원(카페)", "함벽정"];
         
         
-        var locs_detail_desc = ["(강경)옥녀봉", 
+        var locs_detail_desc1 = ["(강경)옥녀봉", 
                                 "(강경)소금이야기", 
                                 "(성당포구)바람개비마을", 
                                 "(웅포)벚꽃터널", 
@@ -56,6 +56,18 @@
                                 "(익산)왕궁리 유적", 
                                 "(익산)왕궁다원", 
                                 "(익산)함벽정"
+                               ];
+        
+        var locs_detail_desc2 = ["옥녀봉은...", 
+                                "소금이야기...", 
+                                "바람개비마을은...", 
+                                "벚꽃터널은..", 
+                                '함라산황토가든은..',
+                                "구룡마을 대나무숲은..", 
+                                "서동공원은..", 
+                                "왕궁리유적은...", 
+                                "왕궁다원은...", 
+                                "함벽정은..."
                                ];
         
         var locs_type = [3, 1, 3, 3, 1,
@@ -87,7 +99,7 @@
 
         for (var i = 0; i < locs_pos.length; i++) {
             make_markers(i);   // 함수를 사용하지 않으면 인포창이 제대로 동작 안함 (변수 영역 문제인듯)
-            console.log(i, locs_desc[i]);
+            console.log(i, locs_name[i]);
         }
 
         function make_markers(i) {            
@@ -98,7 +110,9 @@
                 position: pos
             });
 
-            var content = '<div class="click_text"> <a href=' + locs_link[i] + ">" + locs_desc[i] + '</a> </div>';
+            var content = '<div class="click_text"> <a href=' + locs_link[i] + ">" + locs_detail_desc1[i] + '</a> <br><br>' 
+                           + locs_detail_desc1[2] +
+                            </div>';
             console.log(content);
             kakao.maps.event.addListener(marker, 'click', function () {
                 infowindow.setContent(content );
@@ -109,7 +123,7 @@
             var customOverlay = new kakao.maps.CustomOverlay({
                 map: map,
                 position: pos,
-                content: '<div class = "overlay">' + (i+1) + '. ' + locs_detail_desc[i]  + '</div>',
+                content: '<div class = "overlay">' + (i+1) + '. ' + locs_name[i]  + '</div>',
                 yAnchor: 5.5
             })
 

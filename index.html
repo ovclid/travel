@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>지도 이동시키기</title>
+
+    <style>
+        .overlay {
+            background-color : yellow; 
+            font-size: 8px; 
+            color:red; 
+            font-weight: bold;
+        }
+
+        .click_text {
+            font-size: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map" style="width:1000px;height:1000px;"></div>
+
+    <div style="font-size: 10px;">font style test </div>
+
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=56dd36038680e4d6f7b1cbc67b011a06"></script>
+
+    <script>
+        var mapContainer = document.getElementById('map'); // 지도를 표시할 div 
+        var mapOption = {
+            //center: new kakao.maps.LatLng(36.05229319313596, 127.0392585867888), // 지도의 중심좌표
+
+            center: new kakao.maps.LatLng(36.06359298262993, 126.97191647184728), // 지도의 중심좌표
+            level: 8 // 지도의 확대 레벨
+        };
+        var map = new kakao.maps.Map(mapContainer, mapOption);
+
+        var infowindow = new kakao.maps.InfoWindow({ zIndex: 1, removable :true });
+
+        var locs_desc = ["(강경) 옥녀봉", "(강경) 소금이야기", "(성당포구) 바람개비마을", "(웅포) 벚꽃터널", '(웅포)함라산황토가든',
+                        "(익산) 구룡마을 대나무숲", "(익산) 서동공원", "(익산)왕궁리 유적", "(익산) 왕궁다원", "(익산) 함벽정"];
+        var locs_type = [3, 1, 3, 3, 1,
+                        3, 3, 3, 1, 3];
+
+        var locs_pos = [[36.1646843132546, 127.01137838259797], // 옥녀봉
+        [36.161884650728034, 127.01353366512988],  // 소금이야기
+        [36.13067148567314, 126.92162049197407], //바람개비마을
+        [36.079112758717216, 126.89220879396842], // 벚꽃터널 
+        [36.06925852328077, 126.91485609575727], // 황토가든
+        [36.01450443362705, 127.04565748921438], // 대나무숲
+        [36.001285918576905, 127.06016101444497], // 서동공원
+        [35.97308925604399, 127.05463003154912], // 왕궁리유적
+        [35.98327875088414, 127.09398482571173], //왕궁다원
+        [35.99335766693819, 127.10228028655698] // 함벽정
+        ];
+
+        var locs_link = ['https://blog.daum.net/cola1018/6036771', // 옥녀봉
+                        'https://blog.naver.com/wolfcha99/221873916862', // 소금이야기
+                        'https://blog.naver.com/vxo_oxv/221896376482',  //바람개비마을
+                        'https://blog.naver.com/hiksanin/221900546136', // 벚꽃터널 
+                        'https://blog.naver.com/uuu8002/222623752216',  // 황토가든
+                        'https://blog.naver.com/bomool5074/222509964331', // 대나무숲
+                        'https://blog.naver.com/esk9697/222299710096', // 서동공원
+                        'https://blog.naver.com/unescobaekje/221899047036', //왕궁리유적
+                        'https://blog.naver.com/bomool5074/222356136791', // 왕궁다원
+                        'https://blog.naver.com/wltj323/222336450765' // 함벽정
+        ]
+
+        for (var i = 0; i < locs_pos.length; i++) {
+            make_markers(i);   // 함수를 사용하지 않으면 인포창이 제대로 동작 안함 (변수 영역 문제인듯)
+            console.log(i, locs_desc[i]);
+        }
+
+        function make_markers(i) {            
+            var pos = new kakao.maps.LatLng(locs_pos[i][0], locs_pos[i][1]);
+
+            var marker = new kakao.maps.Marker({
+                map: map,
+                position: pos
+            });
+
+            var content = '<div class="click_text"> <a href=' + locs_link[i] + ">" + locs_desc[i] + '</a> </div>';
+            console.log(content);
+            kakao.maps.event.addListener(marker, 'click', function () {
+                infowindow.setContent(content );
+                infowindow.open(map, marker);
+            });
+
+            // 커스텀 오버레이를 생성합니다
+            var customOverlay = new kakao.maps.CustomOverlay({
+                map: map,
+                position: pos,
+                content: '<div class = "overlay">' + (i+1) + '. ' + locs_desc[i]  + '</div>',
+                yAnchor: 4
+            })
+
+        }
+    </script>
+</body>
+
+</html>

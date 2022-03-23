@@ -72,16 +72,16 @@
                                 "(익산) 함벽정 <- click"
                                ];
         
-        var locs_detail_desc2 = ["옥녀봉은...", 
-                                "소금이야기...", 
-                                "바람개비마을은...", 
-                                "벚꽃터널은..", 
-                                '함라산황토가든은..',
-                                "구룡마을 대나무숲은..", 
-                                "서동공원은..", 
-                                "왕궁리유적은...", 
-                                "왕궁다원은...", 
-                                "함벽정은..."
+        var locs_detail_desc2 = ["아름다운 강경이 한눈에 보이는 옥녀봉의 전설은...", 
+                                "강경의 '향기로운 소금이야기'는...", 
+                                "성당포구에 위치한 바람개비 마을은...", 
+                                "웅포의 대표 벚꽃터널은..", 
+                                '오리주물럭이 유명한 함라산황토가든은..',
+                                "구룡마을의 대나무숲은..", 
+                                "금마저수지 옆 서동공원은..", 
+                                "유네스코에 지정된 왕궁리유적은...", 
+                                "멋진 정원과 한옥으로 꾸며진 왕궁다원은...", 
+                                "대망의 마지막 코스 함벽정은..."
                                ];
         
         var locs_type = [3, 1, 3, 3, 1,
@@ -124,9 +124,9 @@
                 position: pos
             });
 
-            var content = '<div class="click_text"> <a href=' + locs_link[i] + ">" + locs_detail_desc1[i] + '</a> <br><br>' 
+            var content = '<div class="click_text"> <a href=' + locs_link[i] + ">" + locs_detail_desc1[i] + '</a> <br> <br>' 
                            + locs_detail_desc2[i] +
-                            '</div>';
+                            '<br> </div>';
             console.log(content);
             kakao.maps.event.addListener(marker, 'click', function () {
                 infowindow.setContent(content );

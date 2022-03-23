@@ -50,7 +50,7 @@
 
         // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
         //var zoomControl = new kakao.maps.ZoomControl();
-        //map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+        //map.addControl(zoomControl, kakao.maps.ControlPosition.TOP);
 
         var infowindow = new kakao.maps.InfoWindow({ zIndex: 1, removable :true });
 
@@ -70,16 +70,16 @@
                                 "(익산) 함벽정 <- click"
                                ];
         
-        var locs_detail_desc2 = ["아름다운 강경이 한눈에 보이는 옥녀봉의 전설은...", 
-                                "강경의 '향기로운 소금이야기'는...", 
-                                "성당포구에 위치한 바람개비 마을은...", 
-                                "웅포의 대표 벚꽃터널은..", 
-                                '오리주물럭이 유명한 함라산황토가든은..',
-                                "구룡마을의 대나무숲은..", 
-                                "금마저수지 옆 서동공원은..", 
-                                "유네스코에 지정된 왕궁리유적은...", 
-                                "멋진 정원과 한옥으로 꾸며진 왕궁다원은...", 
-                                "대망의 마지막 코스 함벽정은..."
+        var locs_detail_desc2 = ["논산시 강경읍 북옥리 142", 
+                                "논산시 강경읍 계백로167번길 53-28", 
+                                "익산시 성당면 성당로 762", 
+                                "익산시 웅포면 송천로 5", 
+                                '익산시 함라면 백제로 638',
+                                "익산시 금마면 신용리 541-2", 
+                                "익산시 금마면 고도9길 41-14", 
+                                "익산시 왕궁면 궁성로 666", 
+                                "익산시 왕궁면 사곡길 21-5", 
+                                "익산시 왕궁면 호반로 30-21"
                                ];
         
         var locs_type = [3, 1, 3, 3, 1,
@@ -122,9 +122,9 @@
                 position: pos
             });
 
-            var content = '<div class="click_text"> <a href=' + locs_link[i] + ">" + locs_detail_desc1[i] + '</a> <br> <br>' 
+            var content = '<div class="click_text"> <a href=' + locs_link[i] + ">" + locs_detail_desc1[i] + '</a> <br> <br> <address>' 
                            + locs_detail_desc2[i] +
-                            '<br> </div>';
+                            '</address> <br> </div>';
             console.log(content);
             kakao.maps.event.addListener(marker, 'click', function () {
                 infowindow.setContent(content );

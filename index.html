@@ -35,15 +35,29 @@
         var mapOption = {
             //center: new kakao.maps.LatLng(36.05229319313596, 127.0392585867888), // 지도의 중심좌표
 
-            center: new kakao.maps.LatLng(36.06359298262993, 126.97191647184728), // 지도의 중심좌표
+            center: new kakao.maps.LatLng(36.108003148053555, 127.02291130719159), // 지도의 중심좌표
             level: 8 // 지도의 확대 레벨
         };
         var map = new kakao.maps.Map(mapContainer, mapOption);
 
         var infowindow = new kakao.maps.InfoWindow({ zIndex: 1, removable :true });
 
-        var locs_desc = ["(강경) 옥녀봉", "(강경) 소금이야기", "(성당포구) 바람개비마을", "(웅포) 벚꽃터널", '(웅포)함라산황토가든',
-                        "(익산) 구룡마을 대나무숲", "(익산) 서동공원", "(익산)왕궁리 유적", "(익산) 왕궁다원", "(익산) 함벽정"];
+        var locs_desc = ["옥녀봉", "소금이야기(카페, 10시~)", "바람개비마을", "벚꽃터널-드라이브길", '함라산황토가든(식당)',
+                        "대나무숲", "서동공원", "왕궁리유적", "왕궁다원(카페)", "함벽정"];
+        
+        
+        var locs_detail_desc = ["(강경)옥녀봉", 
+                                "(강경)소금이야기", 
+                                "(성당포구)바람개비마을", 
+                                "(웅포)벚꽃터널", 
+                                '(웅포)함라산황토가든',
+                                "(익산)구룡마을 대나무숲", 
+                                "(익산)서동공원", 
+                                "(익산)왕궁리 유적", 
+                                "(익산)왕궁다원", 
+                                "(익산)함벽정"
+                               ];
+        
         var locs_type = [3, 1, 3, 3, 1,
                         3, 3, 3, 1, 3];
 
@@ -95,7 +109,7 @@
             var customOverlay = new kakao.maps.CustomOverlay({
                 map: map,
                 position: pos,
-                content: '<div class = "overlay">' + (i+1) + '. ' + locs_desc[i]  + '</div>',
+                content: '<div class = "overlay">' + (i+1) + '. ' + locs_detail_desc[i]  + '</div>',
                 yAnchor: 5.5
             })
 

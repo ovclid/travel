@@ -17,7 +17,7 @@
     <style>
         .overlay {
             background-color : yellow; 
-            font-size: 8px; 
+            font-size: 10px; 
             color:red; 
             font-weight: bold;
         }
@@ -57,16 +57,16 @@
                         "대나무숲", "서동공원", "왕궁리유적", "왕궁다원", "함벽정"];
         
         
-        var locs_detail_desc1 = ["(강경) 옥녀봉 <- 블로그", 
-                                "(강경) 소금이야기 <- 블로그", 
-                                "(성당포구) 바람개비마을 <- 블로그", 
-                                "(웅포) 벚꽃터널 <- 블로그", 
-                                '(웅포) 함라산황토가든 <- 블로그',
-                                "(익산) 구룡마을 대나무숲 <- 블로그", 
-                                "(익산) 서동공원 <- 블로그", 
-                                "(익산) 왕궁리유적 <- 블로그", 
-                                "(익산) 왕궁다원 <- 블로그", 
-                                "(익산) 함벽정 <- 블로그"
+        var locs_detail_desc1 = ["(강경) 옥녀봉 - 블로그", 
+                                "(강경) 소금이야기 - 블로그", 
+                                "(성당포구) 바람개비마을 - 블로그", 
+                                "(웅포) 벚꽃터널 - 블로그", 
+                                '(웅포) 함라산황토가든 - 블로그',
+                                "(익산) 구룡마을 대나무숲 - 블로그", 
+                                "(익산) 서동공원 - 블로그", 
+                                "(익산) 왕궁리유적 - 블로그", 
+                                "(익산) 왕궁다원 - 블로그", 
+                                "(익산) 함벽정 - 블로그"
                                ];
         
         var locs_detail_desc2 = ["논산시 강경읍 북옥리 142", 
@@ -126,8 +126,10 @@
 
             var content = '<div class="click_text"> <a href=' + locs_link[i] + ">" + locs_detail_desc1[i] + 
                           '</a> <br> <br> ' + '카카오내비 :'+ 
-                          '<address> <a href = https://map.kakao.com/link/to/' + des_loc + ">" + locs_detail_desc2[i] + '</a>'
-                          '</address> <br> </div>';
+                          '<address> <a href = https://map.kakao.com/link/to/' + des_loc + ">" + locs_detail_desc2[i] + '</a>' +
+                          '</address> <br> ' + 
+                          '<img src= "' +  locs_name[i] + '.jpg" ' + 'width="150" height="120"> </img> </div>';
+
             console.log(content);
             kakao.maps.event.addListener(marker, 'click', function () {
                 infowindow.setContent(content );

@@ -54,20 +54,20 @@
 
         var infowindow = new kakao.maps.InfoWindow({ zIndex: 1, removable :true });
 
-        var locs_name = ["옥녀봉", "소금이야기(카페, 10시~)", "바람개비마을", "벚꽃터널-드라이브길", '함라산황토가든(식당)',
-                        "대나무숲", "서동공원", "왕궁리유적", "왕궁다원(카페)", "함벽정"];
+        var locs_name = ["옥녀봉", "향기로운소금이야기", "바람개비마을", "벚꽃터널", '함라산황토가든',
+                        "대나무숲", "서동공원", "왕궁리유적", "왕궁다원", "함벽정"];
         
         
-        var locs_detail_desc1 = ["(강경) 옥녀봉 <- click", 
-                                "(강경) 소금이야기 <- click", 
-                                "(성당포구) 바람개비마을 <- click", 
-                                "(웅포) 벚꽃터널 <- click", 
-                                '(웅포) 함라산황토가든 <- click',
-                                "(익산) 구룡마을 대나무숲 <- click", 
-                                "(익산) 서동공원 <- click", 
-                                "(익산) 왕궁리유적 <- click", 
-                                "(익산) 왕궁다원 <- click", 
-                                "(익산) 함벽정 <- click"
+        var locs_detail_desc1 = ["(강경) 옥녀봉 <- 블로그 링크", 
+                                "(강경) 소금이야기 <- 블로그 링크>", 
+                                "(성당포구) 바람개비마을 <- 블로그 링크>", 
+                                "(웅포) 벚꽃터널 <- 블로그 링크>", 
+                                '(웅포) 함라산황토가든 <- 블로그 링크>',
+                                "(익산) 구룡마을 대나무숲 <- 블로그 링크>", 
+                                "(익산) 서동공원 <- 블로그 링크>", 
+                                "(익산) 왕궁리유적 <- 블로그 링크>", 
+                                "(익산) 왕궁다원 <- 블로그 링크>", 
+                                "(익산) 함벽정 <- 블로그 링크>"
                                ];
         
         var locs_detail_desc2 = ["논산시 강경읍 북옥리 142", 
@@ -122,9 +122,13 @@
                 position: pos
             });
 
-            var content = '<div class="click_text"> <a href=' + locs_link[i] + ">" + locs_detail_desc1[i] + '</a> <br> <br> <address>' 
-                           + locs_detail_desc2[i] +
-                            '</address> <br> </div>';
+            var des_loc = locs_name[i] + ',' + locs_pos[i][0] + ',' + locs_pos[i][1];
+            console.log(des_loc);
+
+            var content = '<div class="click_text"> <a href=' + locs_link[i] + ">" + locs_detail_desc1[i] + 
+                          '</a> <br> <br> ' + '카카오내비 :'+ 
+                          '<address> <a href = https://map.kakao.com/link/to/' + des_loc + ">" + locs_detail_desc2[i] + '</a>'
+                          '</address> <br> </div>';
             console.log(content);
             kakao.maps.event.addListener(marker, 'click', function () {
                 infowindow.setContent(content );

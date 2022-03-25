@@ -56,6 +56,8 @@
         var locs_name = ["옥녀봉", "향기로운소금이야기", "바람개비마을", "벚꽃터널", '함라산황토가든',
                         "대나무숲", "서동공원", "왕궁리유적", "왕궁다원", "함벽정"];
         
+        var locs_file_name = ["옥녀봉.jpg", "향기로운소금이야기.jpg", "바람개비마을.jpg", "벚꽃터널.jpg", '함라산황토가든.gif',
+                        "대나무숲.jpg", "서동공원.jpg", "왕궁리유적.jpg", "왕궁다원.jpg", "함벽정.jpg"];                        
         
         var locs_detail_desc1 = ["(강경) 옥녀봉 - 블로그", 
                                 "(강경) 소금이야기 - 블로그", 
@@ -92,7 +94,7 @@
         [36.01176930239787, 127.04696779736834], // 대나무숲
         [36.001285918576905, 127.06016101444497], // 서동공원
         [35.97308925604399, 127.05463003154912], // 왕궁리유적
-        [35.98327875088414, 127.09398482571173], //왕궁다원
+        [35.982028578841025, 127.09385711281655], //왕궁다원
         [35.99335766693819, 127.10228028655698] // 함벽정
         ];
 
@@ -128,7 +130,7 @@
                           '</a> <br> <br> ' + '카카오내비 :'+ 
                           '<address> <a href = https://map.kakao.com/link/to/' + des_loc + ">" + locs_detail_desc2[i] + '</a>' +
                           '</address> <br> ' + 
-                          '<img src= "' +  locs_name[i] + '.jpg" ' + 'width="150" height="120"> </img> </div>';
+                          '<img src= "' +  locs_file_name[i] + '" ' + 'width="150" height="120"> </img> </div>';
 
             console.log(content);
             kakao.maps.event.addListener(marker, 'click', function () {
@@ -141,7 +143,7 @@
                 map: map,
                 position: pos,
                 content: '<div class = "overlay">' + (i+1) + '. ' + locs_name[i]  + '</div>',
-                yAnchor: 3.5
+                yAnchor: 4.2
             })
 
         }
